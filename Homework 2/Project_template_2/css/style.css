@@ -1,0 +1,9 @@
+.checked{
+    color:gray;
+    text-decoration:line-through;
+}
+
+div{
+	padding-bottom: 5px;
+	display: inline-grid;
+}
