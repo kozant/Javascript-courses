@@ -29,12 +29,12 @@ function DestroyAll(){
 			article.innerHTML = "<h1>Что такое Lorem Ipsum?</h1>";
 				var tag_p = document.createElement("p");
 				tag_p.textContent = "Lorem Ipsum - это текст-рыба, часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной";
-               	tag_p.textContent += "рыбой для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию";
-               	tag_p.textContent += "размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без";
-               	tag_p.textContent += "заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время";
+               			tag_p.textContent += "рыбой для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию";
+               			tag_p.textContent += "размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без";
+               			tag_p.textContent += "заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время";
            		article.appendChild(tag_p);
-        main.innerHTML += "<nav><p>Navigation</p></nav><aside><p>Sidebar</p></aside>";
-    body.innerHTML += "<footer><p>Footer</p></footer>";
+        	main.innerHTML += "<nav><p>Navigation</p></nav><aside><p>Sidebar</p></aside>";
+	body.innerHTML += "<footer><p>Footer</p></footer>";
 }
 
 var button1 = document.getElementById("button1");
