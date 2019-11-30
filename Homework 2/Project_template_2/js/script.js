@@ -7,30 +7,19 @@ var clearBtn = document.querySelector("#clear");
 var saveBtn = document.getElementById("save");
 
 
-function timer(year, month, day) {
-    this.year = year;
-    this.month = month;
-    this.day = day;
-
-    console.log(day);
-    var nowDate = new Date();
-    var achiveDate = new Date(year, month, day, 0, 0, 0); //Задаем дату, к которой будет осуществляться обратный отсчет
-    var result = (achiveDate - nowDate)+1000;
-    if (result < 0) {
-        var elmnt = document.getElementById('timer');
-        elmnt.innerHTML = ' - : - - : - - : - - ';
-        return undefined;
-    }
-    var seconds = Math.floor((result/1000)%60);
-    var minutes = Math.floor((result/1000/60)%60);
-    var hours = Math.floor((result/1000/60/60)%24);
-    var days = Math.floor(result/1000/60/60/24);
-    if (seconds < 10) seconds = '0' + seconds;
-    if (minutes < 10) minutes = '0' + minutes;
-    if (hours < 10) hours = '0' + hours;
-    var elmnt = document.getElementById('timer');
-    elmnt.innerHTML = days + ':' + hours + ':' + minutes + ':' + seconds;
-    setTimeout(timer, 1000);
+function gtimer(year, month, day, spanTime){
+  // текущая дата
+  var now = new Date();       
+  // дата предстоящего события (год, месяц, число)
+  var eventDate = new Date(year, month, day);
+  var span = spanTime.querySelectorAll('span');
+  var spanLastValue = span[span.length - 1];
+  // если событие еще не наступило
+  if(now < eventDate){
+    window.setInterval(function(){ 
+        spanLastValue.innerHTML = timeToEvent(eventDate); 
+    },1000);           
+  }               
 }
 
 
@@ -45,8 +34,6 @@ function loadTodo(){
     for (var i = 0; i < spanElement.length; i++) {
       deleteTask(spanElement[i]);
       localStorage.removeItem('todoList');
-      var divTime = document.createElement('div');
-      divTime.setAttribute('id', 'timer');
     }
   }
 }
@@ -68,14 +55,14 @@ submit.addEventListener("click",function(){
   var newMonth = Number(newDate[3] + newDate[4]);
   var newYear = Number(newDate[6] + newDate[7] + newDate[8] + newDate[9]);
 
-  var divTime = document.createElement('div');
-  divTime.setAttribute('id', 'timer');
+  var span = document.createElement('span');
 
   icon.classList.add('fas', 'fa-trash-alt'); 
 
   spanElement.append(icon);
-  ul.appendChild(li).append(spanElement, newTodo + " ", divTime);
-  timer(newYear, newMonth, newDay); 
+  ul.appendChild(li).append(spanElement, newTodo + " ", span);
+
+  gtimer(newYear, newMonth, newDay, li); 
 
   deleteTask(spanElement);
 
@@ -98,3 +85,27 @@ clearBtn.addEventListener('click', function(){
 });
 
 loadTodo();  
+
+
+
+
+function timeToEvent(eventDate)
+  {
+      var now = new Date();
+      var output = '';      
+     // количество дней до события
+     var daystoED = Math.floor(Math.round(eventDate-now)/86400000);
+     daystoED = (daystoED < 1) ? "0"+daystoED : daystoED;
+     // количество часов до события
+     var hourstoED = 24 - now.getHours() - 1;
+       hourstoED = (hourstoED < 10) ? "0"+hourstoED : hourstoED;
+     // количество минут до события
+     var minutestoED = 60 - now.getMinutes() - 1;
+         minutestoED = (minutestoED < 10) ? "0"+minutestoED : minutestoED;
+     // количество секунд до события
+     var secondstoED = 60 - now.getSeconds() - 1;
+     secondstoED = (secondstoED < 10) ? "0"+secondstoED : secondstoED;       
+     //сообщение
+       output = daystoED+" дн. "+hourstoED+" час. "+minutestoED+" мин. "+secondstoED+" сек.";
+   return output;
+}
