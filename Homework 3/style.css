@@ -1,0 +1,207 @@
+input[type='submit'], button, [aria-label]{
+      cursor: pointer;
+}
+
+#spoiler{
+	display: none;
+}
+
+#add{
+	display: block;
+}
+
+#teacher, #student, #add{
+	color: #fff; 
+  	text-decoration: none;
+  	user-select: none; 
+  	background: rgb(212,75,56); 
+  	padding: .7em 1.5em;
+  	font-size: 20px;
+}
+
+#teacher:hover{
+	background: rgb(232,95,76); 
+} 
+
+#student:hover{
+	background: rgb(232,95,76); 
+} 
+
+#add:hover{
+	background: rgb(232,95,76); 
+}
+
+#teacher:active{ 
+	background: rgb(152,15,0);
+} 
+
+#student:active{ 
+	background: rgb(152,15,0);
+} 
+
+#add:active{ 
+	background: rgb(152,15,0);
+} 
+
+.field{
+	clear: both; 
+	text-align: right;
+	line-height: 45px;
+}
+
+.fieldCheckbox{
+	line-height: 45px;
+}
+
+.fieldAge, .fieldExp{
+	clear: both; 
+	text-align: left;
+	line-height: 45px;
+}
+
+
+
+label{
+	float: left;
+	padding-right: 10px;
+}
+
+.lAge{
+	padding-right: 73px;
+}
+
+.slAge{
+	padding-right: 102px;
+}
+
+.lExp{
+	padding-right: 96px;
+}
+
+.lCourse{
+	padding-right: 129px;
+}
+
+.mainTeacher{
+	margin-top: 30px;
+	float: left;
+	font-size: 20px;
+	display: none;
+	padding-right: 60px;
+	background: #ECE9E0;
+}
+
+.mainStudent{
+	margin-top: 30px;
+	float: left;
+	font-size: 20px;
+	display: none;
+	padding-right: 60px;
+	background: #ECE9E0;
+}
+
+p{
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.field > input{
+	margin-left: 35px;
+}
+
+.field > input:valid{
+}
+
+
+.fieldButton{
+	margin-top: 20px;
+}
+
+.fieldButton > button{
+	margin: 10px;
+	font-size: 20px;
+	color: #fff; 
+  	text-decoration: none;
+  	user-select: none; 
+  	background: rgb(212,75,56); 
+  	padding: 10px;
+}
+
+.fieldButton > button:hover{
+	background: rgb(232,95,76);
+}
+
+.fieldButton > button:active{
+	background: rgb(152,15,0);
+}
+
+table {
+	margin-top: 30px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	text-align: left;
+	border-collapse: separate;
+	border-spacing: 2px;
+	background: #ECE9E0;
+	color: #656665;
+	border: 16px solid #ECE9E0;
+	border-radius: 20px;
+}
+
+th {
+	font-size: 18px;
+	padding: 4px;
+	text-align: center;
+}
+
+td {
+	background: rgb(212,75,56);
+	color: #fff;
+	padding: 10px;
+	text-align: center;
+}
+
+caption{
+	text-align: left;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+td > button{
+	background-color: #ECE9E0;
+}
+
+td > button:focus{
+	outline: 0;
+}
+
+#newTeacher{
+	display: block;
+}
+
+#reeditTeacher{
+	display: none;
+}
+
+#newStudent{
+	display: block;
+}
+
+#reeditStudent{
+	display: none;
+}
+
+#btnStudentSend{
+	display: block;
+}
+
+#btnStudentSave{
+	display: none;
+}
+
+#btnTeacherSend{
+	display: block;
+}
+
+#btnTeacherSave{
+	display: none;
+}

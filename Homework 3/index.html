@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body id="body">
+	<div>
+		<input type="submit" value="Создать" onclick="add()" id="add">
+		<div id="spoiler" role="aria-hidden">
+			<form action="javascript:void(0);" method="POST">
+		 		<input type="submit" value="Студент" id="student">
+				<input type="submit" value="Преподаватель" id="teacher">
+		 	</form>
+		</div>
+	</div>	
+
+	<form action="javascript:void(0);" method="POST">
+	    <div class="mainTeacher" id="mainTeacher">
+	       	<p id="newTeacher">Новый преподаватель: </p>
+	       	<p id="reeditTeacher">Редактирование преподавателя: </p>
+	        <div class="field">
+	            <label for="teacherName">Имя:</label>
+	            <input type="text"  placeholder="Антон" required id="teacherName" value="Иван" />
+	        </div>
+	        <div class="field">
+	            <label for="teacherSurname">Фамилия:</label>
+	            <input type="text"  placeholder="Козлов" required id="teacherSurname" value="Иванов" />
+	        </div>
+	        <div class="field">
+	            <label for="teacherMiddlename">Отчество:</label>
+	            <input type="text"  placeholder="Сергеевич" required id="teacherMiddlename" value="Иванович" />
+	        </div>
+	        <div class="fieldAge">
+	            <label for="teacherAge" class="lAge">Возраст:</label>
+	            <input type="number" placeholder="25" required id="teacherAge" value="50" />
+	        </div>
+	         <div class="fieldCheckbox">
+	            <label for="Children">Наличие детей:</label>
+	            <input type="checkbox" id="Children" value="true" />
+	        </div>
+	        <div class="field">
+	            <label for="Position">Должность:</label>
+	            <input type="text" placeholder="Профессор" required id="Position" value="Профессор" />
+	        </div>
+	        <div class="fieldExp">
+	            <label for="Experience" class="lExp">Стаж:</label>
+	            <input type="number" placeholder="20" required id="Experience" value="20" />
+	        </div>
+	        <div class="field">
+	            <label for="Department">Кафедра:</label>
+	            <input type="text" required id="Department" placeholder="Веб-технологии" value="Веб-технологии" />
+	        </div>
+	        <div class="fieldButton">
+	        	<button id="btnTeacherSend" type="submit">Отправить</button>
+	        	<button id="btnTeacherSave" type="submit">Сохранить</button>
+	    		<button id="btnTeacherClear" type="submit">Очистить</button>
+	        </div>
+	    </div>
+	</form>
+
+	<form action="javascript:void(0);" method="POST">
+	    <div class="mainStudent" id="mainStudent">
+	       	<p id="newStudent">Новый студент: </p>
+	       	<p id="reeditStudent">Редактирование студента: </p>
+	       	<div class="field">
+	            <label for="studentName">Имя:</label>
+	            <input type="text"  placeholder="Антон" required id="studentName" value="Антон" />
+	        </div>
+	        <div class="field">
+	            <label for="studentSurname">Фамилия:</label>
+	            <input type="text"  placeholder="Козлов" required id="studentSurname" value="Козлов" />
+	        </div>
+	        <div class="field">
+	            <label for="studentMiddlename">Отчество:</label>
+	            <input type="text"  placeholder="Сергеевич" required id="studentMiddlename" value="Сергеевич" />
+	        </div>
+	        <div class="fieldAge">
+	            <label for="studentAge" class="slAge">Возраст:</label>
+	            <input type="number" placeholder="25" required id="studentAge" value="20" />
+	        </div>
+	         <div class="field">
+	            <label for="Faculty">Факультет:</label>
+	            <input type="text" placeholder="Мехмат" required id="Faculty" value="Мехмат" />
+	        </div>
+	        <div class="field">
+	            <label for="GroupNum">Номер группы:</label>
+	            <input type="number" placeholder="02" required id="GroupNum" value="02" />
+	        </div>
+	        <div class="fieldExp">
+	            <label for="Course" class="lCourse">Курс:</label>
+	            <input type="number" placeholder="4" required id="Course" value="4" />
+	        </div>
+	        <div class="field">
+	            <label for="RecordBookNum">Номер зачётки:</label>
+	            <input type="number" required id="RecordBookNum" placeholder="1234567" value="1622145" />
+	        </div>
+	        <div class="fieldButton">
+	        	<button id="btnStudentSend" type="submit">Отправить</button>
+	        	<button id="btnStudentSave" type="submit">Сохранить</button>
+	    		<button id="btnStudentClear" type="submit">Очистить</button>
+	        </div>
+	    </div>
+	</form>
+
+	<div class="divTable" id="divTable">
+		<table>
+			<caption>Таблица студентов и преподавателей: </caption>
+			<tr>
+				<th>Имя</th>
+				<th>Фамилия</th>
+				<th>Отчество</th>
+				<th>Возраст</th>
+				<th>Наличие детей</th>
+				<th>Должность</th>
+				<th>Стаж</th>
+				<th>Кафедра</th>
+				<th>Факультет</th>
+				<th>Номер группы</th>
+				<th>Курс</th>
+				<th>Номер зачётки</th>
+			</tr>
+			<tbody>
+
+			</tbody>
+ 		</table>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>
