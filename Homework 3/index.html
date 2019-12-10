@@ -21,19 +21,19 @@
 	       	<p id="reeditTeacher">Редактирование преподавателя: </p>
 	        <div class="field">
 	            <label for="teacherName">Имя:</label>
-	            <input type="text"  placeholder="Антон" required id="teacherName" value="Иван" />
+	            <input type="text"  placeholder="Антон" required id="teacherName" value="Иван" /><span id="spanTeacherName"> *invalid name</span>
 	        </div>
 	        <div class="field">
 	            <label for="teacherSurname">Фамилия:</label>
-	            <input type="text"  placeholder="Козлов" required id="teacherSurname" value="Иванов" />
+	            <input type="text"  placeholder="Козлов" required id="teacherSurname" value="Иванов" /><span id="spanTeacherSurname"> *invalid surname</span>
 	        </div>
 	        <div class="field">
 	            <label for="teacherMiddlename">Отчество:</label>
-	            <input type="text"  placeholder="Сергеевич" required id="teacherMiddlename" value="Иванович" />
+	            <input type="text"  placeholder="Сергеевич" required id="teacherMiddlename" value="Иванович" /><span id="spanTeacherMiddlename"> *invalid middlename</span>
 	        </div>
 	        <div class="fieldAge">
 	            <label for="teacherAge" class="lAge">Возраст:</label>
-	            <input type="number" placeholder="25" required id="teacherAge" value="50" />
+	            <input type="number" placeholder="25" required id="teacherAge" value="50" /><span id="spanTeacherAge"> *invalid age</span>
 	        </div>
 	         <div class="fieldCheckbox">
 	            <label for="Children">Наличие детей:</label>
@@ -41,15 +41,15 @@
 	        </div>
 	        <div class="field">
 	            <label for="Position">Должность:</label>
-	            <input type="text" placeholder="Профессор" required id="Position" value="Профессор" />
+	            <input type="text" placeholder="Профессор" required id="Position" value="Профессор" /><span id="spanTeacherPosition"> *invalid value</span>
 	        </div>
 	        <div class="fieldExp">
 	            <label for="Experience" class="lExp">Стаж:</label>
-	            <input type="number" placeholder="20" required id="Experience" value="20" />
+	            <input type="number" placeholder="20" required id="Experience" value="20" /><span id="spanTeacherExp"> *invalid value</span>
 	        </div>
 	        <div class="field">
 	            <label for="Department">Кафедра:</label>
-	            <input type="text" required id="Department" placeholder="Веб-технологии" value="Веб-технологии" />
+	            <input type="text" required id="Department" placeholder="Веб-технологии" value="Веб-технологии" /><span id="spanTeacherDep"> *invalid value</span>
 	        </div>
 	        <div class="fieldButton">
 	        	<button id="btnTeacherSend" type="submit">Отправить</button>
@@ -65,35 +65,35 @@
 	       	<p id="reeditStudent">Редактирование студента: </p>
 	       	<div class="field">
 	            <label for="studentName">Имя:</label>
-	            <input type="text"  placeholder="Антон" required id="studentName" value="Антон" />
+	            <input type="text"  placeholder="Антон" required id="studentName" value="Антон" /><span id="spanStudentName"> *invalid name</span>
 	        </div>
 	        <div class="field">
 	            <label for="studentSurname">Фамилия:</label>
-	            <input type="text"  placeholder="Козлов" required id="studentSurname" value="Козлов" />
+	            <input type="text"  placeholder="Козлов" required id="studentSurname" value="Козлов" /><span id="spanStudentSurname"> *invalid surname</span>
 	        </div>
 	        <div class="field">
 	            <label for="studentMiddlename">Отчество:</label>
-	            <input type="text"  placeholder="Сергеевич" required id="studentMiddlename" value="Сергеевич" />
+	            <input type="text"  placeholder="Сергеевич" required id="studentMiddlename" value="Сергеевич" /><span id="spanStudentMiddlename"> *invalid middlename</span>
 	        </div>
 	        <div class="fieldAge">
 	            <label for="studentAge" class="slAge">Возраст:</label>
-	            <input type="number" placeholder="25" required id="studentAge" value="20" />
+	            <input type="number" placeholder="25" required id="studentAge" value="20" /><span id="spanStudentAge"> *invalid age</span>
 	        </div>
 	         <div class="field">
 	            <label for="Faculty">Факультет:</label>
-	            <input type="text" placeholder="Мехмат" required id="Faculty" value="Мехмат" />
+	            <input type="text" placeholder="Мехмат" required id="Faculty" value="Мехмат" /><span id="spanStudentFaculty"> *invalid value</span>
 	        </div>
 	        <div class="field">
 	            <label for="GroupNum">Номер группы:</label>
-	            <input type="number" placeholder="02" required id="GroupNum" value="02" />
+	            <input type="number" placeholder="02" required id="GroupNum" value="02" /><span id="spanStudentGroupNum"> *invalid value</span>
 	        </div>
 	        <div class="fieldExp">
 	            <label for="Course" class="lCourse">Курс:</label>
-	            <input type="number" placeholder="4" required id="Course" value="4" />
+	            <input type="number" placeholder="4" required id="Course" value="4" /><span id="spanStudentCourse"> *invalid value</span>
 	        </div>
 	        <div class="field">
 	            <label for="RecordBookNum">Номер зачётки:</label>
-	            <input type="number" required id="RecordBookNum" placeholder="1234567" value="1622145" />
+	            <input type="number" required id="RecordBookNum" placeholder="1234567" value="1622145" /><span id="spanStudentRec"> *invalid value</span>
 	        </div>
 	        <div class="fieldButton">
 	        	<button id="btnStudentSend" type="submit">Отправить</button>

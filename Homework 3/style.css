@@ -205,3 +205,10 @@ td > button:focus{
 #btnTeacherSave{
 	display: none;
 }
+
+span{
+	font-size: 14px;
+	color: red;
+	display: none;
+}
+

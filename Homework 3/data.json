@@ -1,0 +1,36 @@
+{
+  "Student": [
+    {
+      "name": "Антон",
+      "surname": "Козлов",
+      "middlename": "Сергеевич",
+      "age": "20",
+      "faculty": "Мехмат",
+      "groupNum": "02",
+      "course": "4",
+      "recordBookNum": "1622145"
+    },
+    {
+      "name": "Сергей",
+      "surname": "Козлов",
+      "middlename": "Сергеевич",
+      "age": "20",
+      "faculty": "Мехмат",
+      "groupNum": "02",
+      "course": "4",
+      "recordBookNum": "1622145"
+    }
+  ],
+  "Teacher": [ 
+    {
+      "name": "Антон",
+      "surname": "Козлов",
+      "middlename": "Сергеевич",
+      "age": "50",
+      "children": "true",
+      "position": "Профессор",
+      "experience": "20",
+      "department": "ФАН"
+    }
+  ]
+}

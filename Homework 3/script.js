@@ -1,18 +1,22 @@
 
 
-var btnStudent = document.getElementById('student');
-var btnTeacher = document.getElementById('teacher');
-var btnTeacherSend = document.getElementById('btnTeacherSend');
-var btnTeacherClear = document.getElementById('btnTeacherClear');
-var btnStudentSend = document.getElementById('btnStudentSend');
-var btnStudentClear = document.getElementById('btnStudentClear');
-var table = document.querySelector('tbody');
-var tr = document.createElement('tr');
-var editStudent;
-var deleteStudent;
-var editTeacher;
-var deleteTeacher;
+let btnStudent = document.getElementById('student');
+let btnTeacher = document.getElementById('teacher');
+let btnTeacherSend = document.getElementById('btnTeacherSend');
+let btnTeacherClear = document.getElementById('btnTeacherClear');
+let btnStudentSend = document.getElementById('btnStudentSend');
+let btnStudentClear = document.getElementById('btnStudentClear');
+let table = document.querySelector('tbody');
+let editStudent;
+let deleteStudent;
+let editTeacher;
+let deleteTeacher;
 
+let arrEntity = [];
+let btnDeletes = [];
+let btnEdits = [];
+
+let i = 0;
 
 function add(){
 	document.getElementById('spoiler').style.display = 'block';
@@ -51,10 +55,10 @@ function CloseInput() {
 
 function Person(name, surname, middlename, age){
 	
-	var _name;
-	var _surname;
-	var _middlename;
-	var _age;
+	let _name;
+	let _surname;
+	let _middlename;
+	let _age;
 
 	this.setName = function(name){
 		this.name = name;
@@ -88,10 +92,10 @@ function Person(name, surname, middlename, age){
 
 function Teacher(children, position, experience, department){
 	Person.call(this);
-	var _children;
-	var _position;
-	var _experience;
-	var _department;
+	let _children;
+	let _position;
+	let _experience;
+	let _department;
 
 	this.setChildren = function(children){
 		this.children = children;
@@ -125,10 +129,10 @@ function Teacher(children, position, experience, department){
 
 function Student(faculty, groupNum, course, recordBookNum){
 	Person.call(this);
-	var _faculty;
-	var _groupNum;
-	var _course;
-	var _recordBookNum;
+	let _faculty;
+	let _groupNum;
+	let _course;
+	let _recordBookNum;
 
 	this.setFaculty = function(faculty){
 		this.faculty = faculty;
@@ -160,9 +164,139 @@ function Student(faculty, groupNum, course, recordBookNum){
 	}
 }
 
-btnStudentSend.addEventListener('click', function(){
+// function dataPage(){
+// 	let requestURLforStudent = 'http://localhost:3000/Student';
+// 	let requestForStudent = new XMLHttpRequest();
+// 	requestForStudent.open('GET', requestURLforStudent);
 
-	var person = new Student();
+// 	let requestURLforTeacher = 'http://localhost:3000/Teacher';
+// 	let requestForTeacher = new XMLHttpRequest();
+// 	requestForTeacher.open('GET', requestURLforTeacher);
+
+// 	requestForStudent.responseType = 'text';
+// 	requestForStudent.send(); 
+
+// 	requestForTeacher.responseType = 'text';
+// 	requestForTeacher.send(); 
+
+// 	requestForStudent.onload = function() {
+// 		let studentText = requestForStudent.response; 
+// 		let student = JSON.parse(studentText); 
+
+// 		for(let i = 0; i < student.length; i++){
+// 			let tr = document.createElement('tr');
+// 			table.appendChild(tr);
+
+// 			tr.innerHTML += '<td>' + student[i].name + '</td>';
+// 			tr.innerHTML += '<td>' + student[i].surname + '</td>';
+// 			tr.innerHTML += '<td>' + student[i].middlename + '</td>';
+// 			tr.innerHTML += '<td>' + student[i].age + '</td>';
+// 			tr.innerHTML += '<td>' + '-' + '</td>';
+// 			tr.innerHTML += '<td>' + '-' + '</td>';
+// 			tr.innerHTML += '<td>' + '-' + '</td>';
+// 			tr.innerHTML += '<td>' + '-' + '</td>';
+// 			tr.innerHTML += '<td>' + student[i].faculty + '</td>';
+// 			tr.innerHTML += '<td>' + student[i].groupNum + '</td>';
+// 			tr.innerHTML += '<td>' + student[i].course + '</td>';
+// 			tr.innerHTML += '<td>' + student[i].recordBookNum + '</td>';
+// 		}
+// 	}
+
+// 	requestForTeacher.onload = function(){
+// 		let teacherText = requestForTeacher.response; 
+// 		let teacher = JSON.parse(teacherText);
+
+// 		for(let i = 0; i < teacher.length; i++){
+// 			let tr = document.createElement('tr');
+// 			table.appendChild(tr);
+
+// 			tr.innerHTML += '<td>' + teacher[i].name + '</td>';
+// 			tr.innerHTML += '<td>' + teacher[i].surname + '</td>';
+// 			tr.innerHTML += '<td>' + teacher[i].middlename + '</td>';
+// 			tr.innerHTML += '<td>' + teacher[i].age + '</td>';
+// 			tr.innerHTML += '<td>' + teacher[i].children + '</td>';
+// 			tr.innerHTML += '<td>' + teacher[i].position + '</td>';
+// 			tr.innerHTML += '<td>' + teacher[i].experience + '</td>';
+// 			tr.innerHTML += '<td>' + teacher[i].department + '</td>';
+// 			tr.innerHTML += '<td>' + '-' + '</td>';
+// 			tr.innerHTML += '<td>' + '-' + '</td>';
+// 			tr.innerHTML += '<td>' + '-' + '</td>';
+// 			tr.innerHTML += '<td>' + '-' + '</td>';
+// 		}
+// 	}
+// }
+
+// dataPage();
+
+function loadPage(e){
+		
+		let tr = document.createElement('tr');
+		table.appendChild(tr);
+		let item = arrEntity.pop()
+
+		tr.innerHTML += '<td>' + item.getName() + '</td>';
+		tr.innerHTML += '<td>' + item.getSurname() + '</td>';
+		tr.innerHTML += '<td>' + item.getMiddlename() + '</td>';
+		tr.innerHTML += '<td>' + item.getAge() + '</td>';
+		if(item instanceof Teacher){
+			tr.innerHTML += '<td>' + item.getChildren() + '</td>';
+			tr.innerHTML += '<td>' + item.getPosition() + '</td>';
+			tr.innerHTML += '<td>' + item.getExperience() + '</td>';
+			tr.innerHTML += '<td>' + item.getDepartment() + '</td>';
+			tr.innerHTML += '<td>' + '-' + '</td>';
+			tr.innerHTML += '<td>' + '-' + '</td>';
+			tr.innerHTML += '<td>' + '-' + '</td>';
+			tr.innerHTML += '<td>' + '-' + '</td>';
+			tr.innerHTML += '<td>' + "<button id=edit" + e + ">Редактировать</button> <button id=delete" + e + ">Удалить</button>" + '</td>';
+		}
+		console.log(item);
+		if(item instanceof Student){
+			tr.innerHTML += '<td>' + '-' + '</td>';
+			tr.innerHTML += '<td>' + '-' + '</td>';
+			tr.innerHTML += '<td>' + '-' + '</td>';
+			tr.innerHTML += '<td>' + '-' + '</td>';
+			tr.innerHTML += '<td>' + item.getFaculty() + '</td>';
+			tr.innerHTML += '<td>' + item.getGroupNum() + '</td>';
+			tr.innerHTML += '<td>' + item.getCourse() + '</td>';
+			tr.innerHTML += '<td>' + item.getRecordBookNum() + '</td>';
+			tr.innerHTML += '<td>' + "<button id=edit" + e + ">Редактировать</button> <button id=delete" + e + ">Удалить</button>" + '</td>';
+		}
+
+		btnDeletes.push(document.getElementById("delete" + e));
+		for(let i = 0; i < btnDeletes.length; i++){
+			btnDeletes[i].addEventListener('click', function(){
+				deleteEntity(btnDeletes[i]);
+		 	});
+		}
+
+		btnEdits.push(document.getElementById("edit" + e));
+		for(let i = 0; i < btnEdits.length; i++){
+			if(item instanceof Student){
+				btnEdits[i].addEventListener('click', function(){
+					editEntityStudent(btnEdits[i], item);
+		 		});
+		 	}
+		 	if(item instanceof Teacher){
+				btnEdits[i].addEventListener('click', function(){
+					editEntityTeacher(btnEdits[i], item);
+		 		});
+		 	}
+		}
+}
+
+// function RegExp(){
+// 	let expStudentName = /(a-zA-Zа-яА-Я){,10}/;
+// 	if(!expStudentName.test(document.getElementById('studentName').value)){
+// 		document.getElementById('spanStudentName').style.display = "block";
+// 	}
+// }
+
+// RegExp();
+
+
+function createStudent(){
+
+	let person = new Student();
 	person.setName(document.getElementById('studentName').value);
 	person.setSurname(document.getElementById('studentSurname').value);
 	person.setMiddlename(document.getElementById('studentMiddlename').value);
@@ -172,39 +306,13 @@ btnStudentSend.addEventListener('click', function(){
 	person.setGroupNum(document.getElementById('GroupNum').value);
 	person.setCourse(document.getElementById('Course').value);
 	person.setRecordBookNum(document.getElementById('RecordBookNum').value);
-	
-	var tr = document.createElement('tr');
-	table.appendChild(tr);
 
-	tr.innerHTML += '<td>' + person.getName() + '</td>';
-	tr.innerHTML += '<td>' + person.getSurname() + '</td>';
-	tr.innerHTML += '<td>' + person.getMiddlename() + '</td>';
-	tr.innerHTML += '<td>' + person.getAge() + '</td>';
-	tr.innerHTML += '<td>' + "-" + '</td>';
-	tr.innerHTML += '<td>' + "-" + '</td>';
-	tr.innerHTML += '<td>' + "-" + '</td>';
-	tr.innerHTML += '<td>' + "-" + '</td>';
-	tr.innerHTML += '<td>' + person.getFaculty() + '</td>';
-	tr.innerHTML += '<td>' + person.getGroupNum() + '</td>';
-	tr.innerHTML += '<td>' + person.getCourse() + '</td>';
-	tr.innerHTML += '<td>' + person.getRecordBookNum() + '</td>';
-	tr.innerHTML += '<td>' + "<button>Редактировать</button> <button>Удалить</button>" + '</td>';
+	arrEntity.push(person);
+}
 
-	var studentEdit = tr.querySelectorAll("button")[0];
+function createTeacher(){
 
-	editEntityStudent(studentEdit, person);
-
-	var studentDelete = tr.querySelectorAll("button")[1];
-
-	deleteEntity(studentDelete);
-
-	document.getElementById('mainStudent').style.display = "none";
-	document.getElementById('mainTeacher').style.display = "none";
-})
-
-btnTeacherSend.addEventListener('click', function(){
-
-	var person = new Teacher();
+	let person = new Teacher();
 	person.setName(document.getElementById('teacherName').value);
 	person.setSurname(document.getElementById('teacherSurname').value);
 	person.setMiddlename(document.getElementById('teacherMiddlename').value);
@@ -214,32 +322,26 @@ btnTeacherSend.addEventListener('click', function(){
 	person.setPosition(document.getElementById('Position').value);
 	person.setExperience(document.getElementById('Experience').value);
 	person.setDepartment(document.getElementById('Department').value);
-	
-	var tr = document.createElement('tr');
-	table.appendChild(tr);
 
-	tr.innerHTML += '<td>' + person.getName() + '</td>';
-	tr.innerHTML += '<td>' + person.getSurname() + '</td>';
-	tr.innerHTML += '<td>' + person.getMiddlename() + '</td>';
-	tr.innerHTML += '<td>' + person.getAge() + '</td>';
-	tr.innerHTML += '<td>' + person.getChildren() + '</td>';
-	tr.innerHTML += '<td>' + person.getPosition() + '</td>';
-	tr.innerHTML += '<td>' + person.getExperience() + '</td>';
-	tr.innerHTML += '<td>' + person.getDepartment() + '</td>';
-	tr.innerHTML += '<td>' + "-" + '</td>';
-	tr.innerHTML += '<td>' + "-" + '</td>';
-	tr.innerHTML += '<td>' + "-" + '</td>';
-	tr.innerHTML += '<td>' + "-" + '</td>';
-	tr.innerHTML += '<td>' + "<button>Редактировать</button> <button>Удалить</button>" + '</td>';
+	arrEntity.push(person);
+}
 
+btnStudentSend.addEventListener('click', function(){
 
-	var teacherEdit = tr.querySelectorAll("button")[0];
-	
-	editEntityTeacher(teacherEdit, person);
+	i++;
+	createStudent();
+	loadPage(i);
 
-	var teacherDelete = tr.querySelectorAll("button")[1];
+	document.getElementById('mainStudent').style.display = "none";
+	document.getElementById('mainTeacher').style.display = "none";
+})
 
-	deleteEntity(teacherDelete);
+btnTeacherSend.addEventListener('click', function(){
+
+	i++;
+	createTeacher();
+	loadPage(i);
+
 
 	document.getElementById('mainStudent').style.display = "none";
 	document.getElementById('mainTeacher').style.display = "none";
@@ -268,24 +370,22 @@ btnTeacherClear.addEventListener('click', function(){
 })
 
 function editEntityStudent(item, instance){
-	item.addEventListener('click', function(){
-		document.getElementById('mainStudent').style.display = "block";
+	document.getElementById('mainStudent').style.display = "block";
 
-		document.getElementById('newStudent').style.display = "none";
-		document.getElementById('reeditStudent').style.display = "block";
+	document.getElementById('newStudent').style.display = "none";
+	document.getElementById('reeditStudent').style.display = "block";
 
-		document.getElementById('btnStudentSend').style.display = "none";
-		document.getElementById('btnStudentSave').style.display = "block";
+	document.getElementById('btnStudentSend').style.display = "none";
+	document.getElementById('btnStudentSave').style.display = "block";
 
-		document.getElementById('studentName').value = instance.getName();
-		document.getElementById('studentSurname').value = instance.getSurname();
-		document.getElementById('studentMiddlename').value = instance.getMiddlename();
-		document.getElementById('studentAge').value = instance.getAge();
-		document.getElementById('Faculty').value = instance.getFaculty();
-		document.getElementById('GroupNum').value = instance.getGroupNum();
-		document.getElementById('Course').value = instance.getCourse();
-		document.getElementById('RecordBookNum').value = instance.getRecordBookNum();
-	});
+	document.getElementById('studentName').value = instance.getName();
+	document.getElementById('studentSurname').value = instance.getSurname();
+	document.getElementById('studentMiddlename').value = instance.getMiddlename();
+	document.getElementById('studentAge').value = instance.getAge();
+	document.getElementById('Faculty').value = instance.getFaculty();
+	document.getElementById('GroupNum').value = instance.getGroupNum();
+	document.getElementById('Course').value = instance.getCourse();
+	document.getElementById('RecordBookNum').value = instance.getRecordBookNum();
 
 	btnStudentSave.addEventListener('click', function(){
 			instance.setName(document.getElementById('studentName').value);
@@ -298,32 +398,12 @@ function editEntityStudent(item, instance){
 			instance.setCourse(document.getElementById('Course').value);
 			instance.setRecordBookNum(document.getElementById('RecordBookNum').value);
 
-			item.parentNode.parentNode.remove();
+			deleteEntity(item);
 
-			var tr = document.createElement('tr');
-			table.appendChild(tr);
+			arrEntity.push(instance);
 
-			tr.innerHTML += '<td>' + instance.getName() + '</td>';
-			tr.innerHTML += '<td>' + instance.getSurname() + '</td>';
-			tr.innerHTML += '<td>' + instance.getMiddlename() + '</td>';
-			tr.innerHTML += '<td>' + instance.getAge() + '</td>';
-			tr.innerHTML += '<td>' + "-" + '</td>';
-			tr.innerHTML += '<td>' + "-" + '</td>';
-			tr.innerHTML += '<td>' + "-" + '</td>';
-			tr.innerHTML += '<td>' + "-" + '</td>';
-			tr.innerHTML += '<td>' + instance.getFaculty() + '</td>';
-			tr.innerHTML += '<td>' + instance.getGroupNum() + '</td>';
-			tr.innerHTML += '<td>' + instance.getCourse() + '</td>';
-			tr.innerHTML += '<td>' + instance.getRecordBookNum() + '</td>';
-			tr.innerHTML += '<td>' + "<button>Редактировать</button> <button>Удалить</button>" + '</td>';
-
-			var teacherEdit = tr.querySelectorAll("button")[0];
-	
-			editEntityStudent(studentEdit, instance);
-
-			var studentDelete = tr.querySelectorAll("button")[1];
-
-			deleteEntity(studentDelete);
+			i++;
+			loadPage(i);
 
 			document.getElementById('mainStudent').style.display = "none";
 			document.getElementById('mainTeacher').style.display = "none";
@@ -331,24 +411,22 @@ function editEntityStudent(item, instance){
 }
 
 function editEntityTeacher(item, instance){
-	item.addEventListener('click', function(){
-		document.getElementById('mainTeacher').style.display = "block";
+	document.getElementById('mainTeacher').style.display = "block";
 
-		document.getElementById('newTeacher').style.display = "none";
-		document.getElementById('reeditTeacher').style.display = "block";
+	document.getElementById('newTeacher').style.display = "none";
+	document.getElementById('reeditTeacher').style.display = "block";
 
-		document.getElementById('btnTeacherSend').style.display = "none";
-		document.getElementById('btnTeacherSave').style.display = "block";
+	document.getElementById('btnTeacherSend').style.display = "none";
+	document.getElementById('btnTeacherSave').style.display = "block";
 
-		document.getElementById('teacherName').value = instance.getName();
-		document.getElementById('teacherSurname').value = instance.getSurname();
-		document.getElementById('teacherMiddlename').value = instance.getMiddlename();
-		document.getElementById('teacherAge').value = instance.getAge();
-		document.getElementById('Children').value = instance.getChildren();
-		document.getElementById('Position').value = instance.getPosition();
-		document.getElementById('Experience').value = instance.getExperience();
-		document.getElementById('Department').value = instance.getDepartment();
-	});
+	document.getElementById('teacherName').value = instance.getName();
+	document.getElementById('teacherSurname').value = instance.getSurname();
+	document.getElementById('teacherMiddlename').value = instance.getMiddlename();
+	document.getElementById('teacherAge').value = instance.getAge();
+	document.getElementById('Children').value = instance.getChildren();
+	document.getElementById('Position').value = instance.getPosition();
+	document.getElementById('Experience').value = instance.getExperience();
+	document.getElementById('Department').value = instance.getDepartment();
 
 	btnTeacherSave.addEventListener('click', function(){
 			instance.setName(document.getElementById('teacherName').value);
@@ -361,32 +439,12 @@ function editEntityTeacher(item, instance){
 			instance.setExperience(document.getElementById('Experience').value);
 			instance.setDepartment(document.getElementById('Department').value);
 
-			item.parentNode.parentNode.remove();
+			deleteEntity(item);
 
-			var tr = document.createElement('tr');
-			table.appendChild(tr);
+			arrEntity.push(instance);
 
-			tr.innerHTML += '<td>' + instance.getName() + '</td>';
-			tr.innerHTML += '<td>' + instance.getSurname() + '</td>';
-			tr.innerHTML += '<td>' + instance.getMiddlename() + '</td>';
-			tr.innerHTML += '<td>' + instance.getAge() + '</td>';
-			tr.innerHTML += '<td>' + instance.getChildren() + '</td>';
-			tr.innerHTML += '<td>' + instance.getPosition() + '</td>';
-			tr.innerHTML += '<td>' + instance.getExperience() + '</td>';
-			tr.innerHTML += '<td>' + instance.getDepartment() + '</td>';
-			tr.innerHTML += '<td>' + "-" + '</td>';
-			tr.innerHTML += '<td>' + "-" + '</td>';
-			tr.innerHTML += '<td>' + "-" + '</td>';
-			tr.innerHTML += '<td>' + "-" + '</td>';
-			tr.innerHTML += '<td>' + "<button>Редактировать</button> <button>Удалить</button>" + '</td>';
-
-			var teacherEdit = tr.querySelectorAll("button")[0];
-	
-			editEntityTeacher(teacherEdit, instance);
-
-			var teacherDelete = tr.querySelectorAll("button")[1];
-
-			deleteEntity(teacherDelete);
+			i++;
+			loadPage(i);
 
 			document.getElementById('mainStudent').style.display = "none";
 			document.getElementById('mainTeacher').style.display = "none";
@@ -394,7 +452,6 @@ function editEntityTeacher(item, instance){
 }
 
 function deleteEntity(item){
-	item.addEventListener('click', function(){
-		item.parentNode.parentNode.remove();
-	});
+	item.parentNode.parentNode.remove();
 }
+
