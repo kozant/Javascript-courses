@@ -1,0 +1,104 @@
+
+
+#spoiler{
+	display: none;
+}
+
+.field{
+	clear:both; 
+	text-align:right;
+	line-height:25px;
+}
+
+label{
+	float:left;
+	padding-right:10px;
+}
+
+.add_route{
+	float: left;
+}
+
+#addRoute{
+	padding: 5px;
+	margin-bottom: 10px;
+}
+
+#sendRoute{
+	padding: 5px;
+	margin-top: 10px;
+}
+
+#clearRoute{
+	padding: 5px;
+	margin-top: 10px;
+}
+
+#weather{
+	display: none;
+}
+
+.information{
+	padding-left: 25%;
+}
+
+
+
+
+.items {
+
+}
+
+.list2a {
+    margin-bottom: 8px;
+    padding:0;
+    list-style: none;
+    counter-reset: li;
+}    
+.list2a li {
+    position: relative;
+    border: 2px solid #337AB7;
+    background: #EBF3FA;
+    padding:16px 20px 16px 28px;
+    margin:12px 0 12px 40px;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    width: 450px;
+}
+.list2a li:hover {
+    background: #FFF;
+}
+.list2a li:before {
+    line-height: 32px;
+    position: absolute;
+    top: 4px;
+    left:-40px;
+    width:40px;
+    text-align:center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFF;
+    background: #337AB7;
+    counter-increment: li;
+    content: counter(li);
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+}
+.list2a li:hover:before {
+    width:46px;
+}
+.list2a li:after {
+    position: absolute;
+    left: 0;
+    top: 4px;
+    content: "";
+    height: 0;
+    width: 0;
+    border: 16px solid transparent;
+    border-left-color: #337AB7;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s
+}
+.list2a li:hover:after {
+    margin-left: 6px;
+}
