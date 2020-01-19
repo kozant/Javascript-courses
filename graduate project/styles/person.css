@@ -1,0 +1,59 @@
+.navbar {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.55);
+  }
+  
+  .basket {
+    font-size: 30px;
+    position: relative;
+  }
+  
+  .basket:hover {
+    color: #6e67f5;
+  }
+  
+  .container-counter {
+    font-size: 13px;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin-left: 20px;
+    position: absolute;
+    margin-bottom: 15px;
+    background-color: red;
+    border: 2px red solid;
+    border-radius: 50%;
+    color:white;
+  }
+
+  
+.finder {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .finder a{
+    text-decoration: none;
+    color: black;
+  }
+  
+  .finder a:hover{
+    text-decoration: none;
+    color: black;
+  }
+
+  .account {
+    font-size: 30px;
+  }
+  
+  .account:hover {
+    color: #6e67f5;
+  }
+
+  footer {
+    height: 50px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.55);
+  }
+  
+  .footerDiv {
+    text-align: center;
+    padding-top: 11px;
+  }

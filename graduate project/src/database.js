@@ -1,0 +1,185 @@
+const catalogProduct = [
+    {
+        id: "product1",
+        category: "classic",
+        name: 'LaMancha Rubinito LSM',
+        manufacter: "LaMancha",
+        country_manufacter: "Ukraine",
+        size: "4/4",
+        color: "natural",
+        number_of_strings: "8",
+        img: ['./images/catalogImages/classic_guitars/lamancha-rubinito-lsm/lamancha-rubinito-lsm-1.jpg',
+              './images/catalogImages/classic_guitars/lamancha-rubinito-lsm/lamancha-rubinito-lsm-2.jpg',
+              './images/catalogImages/classic_guitars/lamancha-rubinito-lsm/lamancha-rubinito-lsm-3.jpg',
+              './images/catalogImages/classic_guitars/lamancha-rubinito-lsm/lamancha-rubinito-lsm-4.jpg'
+        ],
+        price: 339.99
+    },
+    {
+        id: "product2",
+        category: "classic",
+        name: "Alhambra Z-Nature",
+        manufacter: "Alhambra",
+        country_manufacter: "Spain",
+        size: "4/4",
+        color: "beige",
+        number_of_strings: "6",
+        img: ['./images/catalogImages/classic_guitars/alhambra_z-nature/alhambra_z-nature_1.jpg',
+              './images/catalogImages/classic_guitars/alhambra_z-nature/alhambra_z-nature_2.jpg',
+              './images/catalogImages/classic_guitars/alhambra_z-nature/alhambra_z-nature_3.jpg',
+              './images/catalogImages/classic_guitars/alhambra_z-nature/alhambra_z-nature_4.jpg'
+        ],
+        price: 691.99
+    },
+    {
+        id: "product3",
+        category: "classic",
+        name: "Yamaha C40M",
+        manufacter: "Yamaha",
+        country_manufacter: "Indonesia",
+        size: "7/8",
+        color: "natural",
+        number_of_strings: "7",
+        img: ['./images/catalogImages/classic_guitars/Yamaha_C40M/Yamaha_C40M_1.jpg',
+              './images/catalogImages/classic_guitars/Yamaha_C40M/Yamaha_C40M_2.jpg',
+              './images/catalogImages/classic_guitars/Yamaha_C40M/Yamaha_C40M_3.jpg'
+        ],
+        price: 245.70
+    },
+    {
+        id: "product4",
+        category: "acoustic",
+        name: "Foix FFG-1038BK",
+        manufacter: "Foix",
+        country_manufacter: "China",
+        size: "4/4",
+        color: "black",
+        number_of_strings: "6",
+        img: ['./images/catalogImages/acoustic_guitars/Foix FFG-1038BK/Foix FFG-1038BK_1.jpg'],
+        price: 139.90
+    },
+    {
+        id: "product5",
+        category: "acoustic",
+        name: "Oscar Schmidt OG2TR",
+        manufacter: "Oscar Schmidt",
+        country_manufacter: "China",
+        size: "7/8",
+        color: "red",
+        number_of_strings: "6",
+        img: ['./images/catalogImages/acoustic_guitars/Oscar Schmidt OG2TR/Oscar Schmidt OG2TR_1.jpg',
+              './images/catalogImages/acoustic_guitars/Oscar Schmidt OG2TR/Oscar Schmidt OG2TR_2.jpg'
+        ],
+        price: 328.90
+    },
+    {
+        id: "product6",
+        category: "acoustic",
+        name: "Cort Earth 70 OP",
+        manufacter: "Cort",
+        country_manufacter: "Indonesia",
+        size: "4/4",
+        color: "natural",
+        number_of_strings: "7",
+        img: ['./images/catalogImages/acoustic_guitars/Cort Earth 70 OP/Cort Earth 70 OP_1.jpg',
+              './images/catalogImages/acoustic_guitars/Cort Earth 70 OP/Cort Earth 70 OP_2.jpg',
+              './images/catalogImages/acoustic_guitars/Cort Earth 70 OP/Cort Earth 70 OP_3.jpg',
+              './images/catalogImages/acoustic_guitars/Cort Earth 70 OP/Cort Earth 70 OP_4.jpg'
+        ],
+        price: 434.70
+    },
+    {
+        id: "product7",
+        category: "electroacoustic",
+        name: "Fender CD-140SCE Natural",
+        manufacter: "Fender",
+        country_manufacter: "Russia",
+        size: "3/4",
+        color: "beige",
+        number_of_strings: "6",
+        img: ['./images/catalogImages/electroacoustic_guitars/Fender CD-140SCE Natural/Fender CD-140SCE Natural_1.jpg',
+              './images/catalogImages/electroacoustic_guitars/Fender CD-140SCE Natural/Fender CD-140SCE Natural_2.jpg',
+              './images/catalogImages/electroacoustic_guitars/Fender CD-140SCE Natural/Fender CD-140SCE Natural_3.jpg',
+              './images/catalogImages/electroacoustic_guitars/Fender CD-140SCE Natural/Fender CD-140SCE Natural_4.jpg',
+        ],
+        price: 1150.00
+    },
+    {
+        id: "product8",
+        category: "electroacoustic",
+        name: "Cort AD810E OP",
+        manufacter: "Cort",
+        country_manufacter: "Indonesia",
+        size: "4/4",
+        color: "natural",
+        number_of_strings: "6",
+        img: ['./images/catalogImages/electroacoustic_guitars/Cort AD810E OP/Cort AD810E OP_1.jpg',
+              './images/catalogImages/electroacoustic_guitars/Cort AD810E OP/Cort AD810E OP_2.jpg',
+              './images/catalogImages/electroacoustic_guitars/Cort AD810E OP/Cort AD810E OP_3.jpg'
+        ],
+        price: 321.30
+    },
+    {
+        id: "product9",
+        category: "electroacoustic",
+        name: "LAG T70ACE",
+        manufacter: "LAG",
+        country_manufacter: "China",
+        size: "4/4",
+        color: "beige",
+        number_of_strings: "7",
+        img: ['./images/catalogImages/electroacoustic_guitars/LAG T70ACE/LAG T70ACE_1.jpg',
+              './images/catalogImages/electroacoustic_guitars/LAG T70ACE/LAG T70ACE_2.jpg',
+              './images/catalogImages/electroacoustic_guitars/LAG T70ACE/LAG T70ACE_3.jpg',
+              './images/catalogImages/electroacoustic_guitars/LAG T70ACE/LAG T70ACE_4.jpg'
+        ],
+        price: 788.99
+    },
+    {
+        id: "product10",
+        category: "electric",
+        name: "Jackson JS11 Dinky BK",
+        manufacter: "Jackson",
+        country_manufacter: "China",
+        type_of_pickups: "active",
+        size: "7/8",
+        color: "black",
+        number_of_strings: "6",
+        img: ['./images/catalogImages/electric_guitars/Jackson JS11 Dinky BK/Jackson JS11 Dinky BK_1.jpg',
+              './images/catalogImages/electric_guitars/Jackson JS11 Dinky BK/Jackson JS11 Dinky BK_2.jpg',
+              './images/catalogImages/electric_guitars/Jackson JS11 Dinky BK/Jackson JS11 Dinky BK_3.jpg',
+              './images/catalogImages/electric_guitars/Jackson JS11 Dinky BK/Jackson JS11 Dinky BK_4.jpg'
+        ],
+        price: 593.75
+    },
+    {
+        id: "product11",
+        category: "electric",
+        name: "Cort KX500MS-SDB Star Dust Black",
+        manufacter: "Cort",
+        country_manufacter: "Indonesia",
+        type_of_pickups: "passive",
+        size: "4/4",
+        color: "Star Dust Black",
+        number_of_strings: "7",
+        img: ['./images/catalogImages/electric_guitars/Jackson JS11 Dinky BK/Jackson JS11 Dinky BK_1.jpg',
+              './images/catalogImages/electric_guitars/Jackson JS11 Dinky BK/Jackson JS11 Dinky BK_2.jpg',
+              './images/catalogImages/electric_guitars/Jackson JS11 Dinky BK/Jackson JS11 Dinky BK_3.jpg',
+              './images/catalogImages/electric_guitars/Jackson JS11 Dinky BK/Jackson JS11 Dinky BK_4.jpg'
+        ],
+        price: 1588.50
+    },
+    {
+        id: "product12",
+        category: "electric",
+        name: "Cort KX5 WP",
+        manufacter: "Cort",
+        country_manufacter: "Indonesia",
+        type_of_pickups: "active",
+        size: "4/4",
+        color: "white",
+        number_of_strings: "6",
+        img: ['./images/catalogImages/electric_guitars/Cort KX5 WP/Cort KX5 WP_1.jpg'],
+        price: 490.20
+    }
+]

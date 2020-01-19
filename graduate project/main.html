@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Главная</title>
+
+  <link rel="stylesheet" href="./css/font-awesome.css">
+  <link rel="stylesheet" href="styles/main.css">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+</head>
+<body>
+ <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid row justify-content-around">
+      <div class="container-fluid col-lg-4">
+        <a href="main.html" class="navbar-brand">Store</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="catalog.html">Каталог товаров</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">О компании</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">FAQ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Блог</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="container-fluid col-lg-4">
+        <form class="form-inline">
+          <input class="form-control mr-sm-2 inputSearchCards" type="search" placeholder="Найти товар..." aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0 btnSearchCards" type="submit">Искать</button>
+        </form>
+        <div class="searchCards">
+          
+        </div>
+      </div>
+      <div class="container-fluid col-lg-2 main">
+        
+      </div>
+      <div class="container-fluid col-lg-1">
+        <i class="fas fa-shopping-cart basket"></i>
+        <div class="container-counter"></div>
+      </div>
+    </div>
+  </nav> 
+
+   <!-- popup form #1 -->
+   <a href="#x" class="overlay" id="login_form"></a>
+   <div class="popup">
+       <h2>Welcome Guest!</h2>
+       <p>Please enter your login and password here</p>
+       <div>
+           <label for="login">Login</label>
+           <input type="text" id="login" value="" />
+       </div>
+       <div>
+           <label for="password">Password</label>
+           <input type="password" id="password" value="" />
+       </div>
+       <input type="button" value="Log In" id="loginBtn"/>
+       <div class="invalid" style="color: red"></div>
+
+       <a class="close" href="#close"></a>
+   </div>
+
+   <!-- popup form #2 -->
+   <a href="#x" class="overlay" id="join_form"></a>
+   <div class="popup">
+       <h2>Sign Up</h2>
+       <p>Please enter your details here</p>
+       <div>
+           <label for="email">Login (Email)</label>
+           <input type="text" id="email" value="" />
+       </div>
+       <div>
+           <label for="pass">Password</label>
+           <input type="password" id="pass" value="" />
+       </div>
+       <div>
+           <label for="firstname">First name</label>
+           <input type="text" id="firstname" value="" />
+       </div>
+       <div>
+           <label for="lastname">Last name</label>
+           <input type="text" id="lastname" value="" />
+       </div>
+       <input type="button" value="Sign Up" id="signupBtn"/>&nbsp;&nbsp;&nbsp;or&nbsp;&nbsp;&nbsp;<a href="#login_form" id="login_pop">Log In</a>
+
+       <a class="close" href="#close"></a>
+   </div>
+  
+  <div class="divCarouselMain">
+    <div id="carouselMain" class="carouselMain">
+      <div class="galleryMain">
+        <ul class="imagesMain">
+          <li><img src="images/mainGalleryImages/left.jpg"></li>
+          <li><img src="images/mainGalleryImages/center.jpg"></li>
+          <li><img src="images/mainGalleryImages/right.jpg"></li>
+        </ul>
+      </div>
+      <button class="arrowMain prevMain"><i class="fas fa-chevron-left"></i></button>
+      <button class="arrowMain nextMain"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
+
+  <div class="bg-light divCarouselStock">
+    <div id="carouselStock" class="carouselStock">
+      <h5 class="headlineStock">Популярные товары</h5>
+      <div class="galleryStock">
+        <div class="listStock">
+          <div class="elementStock">
+            <div class="itemStock">
+              <div class="item">
+                  <div class="stockImg" style="background-image: url('./images/catalogImages/iphone-15.png');"></div>
+                  <div class="stockInformation">
+                    <div class="name">Iphone 15</div>
+                    <div class="price">2999.99 р.</div>
+                    <div class="timer0"></div>
+                  </div>
+              </div>
+              <div class="item">
+                <div class="stockImg" style="background-image: url('./images/catalogImages/iphone-15.png');"></div>
+                <div class="stockInformation">
+                  <div class="name">Iphone 15</div>
+                  <div class="price">2999.99 р.</div>
+                  <div class="timer1"></div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="stockImg" style="background-image: url('./images/catalogImages/iphone-15.png');"></div>
+                <div class="stockInformation">
+                  <div class="name">Iphone 15</div>
+                  <div class="price">2999.99 р.</div>
+                  <div class="timer2"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="itemStock">
+              <div class="item">
+                  <div class="stockImg" style="background-image: url('./images/catalogImages/iphone-15.png');"></div>
+                  <div class="stockInformation">
+                    <div class="name">Iphone 15</div>
+                    <div class="price">2999.99 р.</div>
+                    <div class="timer3"></div>
+                  </div>
+              </div>
+              <div class="item">
+                <div class="stockImg" style="background-image: url('./images/catalogImages/iphone-15.png');"></div>
+                <div class="stockInformation">
+                  <div class="name">Iphone 15</div>
+                  <div class="price">2999.99 р.</div>
+                  <div class="timer4"></div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="stockImg" style="background-image: url('./images/catalogImages/iphone-15.png');"></div>
+                <div class="stockInformation">
+                  <div class="name">Iphone 15</div>
+                  <div class="price">2999.99 р.</div>
+                  <div class="timer5"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="elementStock">
+            <div class="itemStock">
+              <div class="item">
+                  <div class="stockImg" style="background-image: url('./images/catalogImages/motorolla.jpg');"></div>
+                  <div class="stockInformation">
+                    <div class="name">Motorolla</div>
+                    <div class="price">899 р.</div>
+                    <div class="timer6"></div>
+                  </div>
+              </div>
+              <div class="item">
+                <div class="stockImg" style="background-image: url('./images/catalogImages/motorolla.jpg');"></div>
+                <div class="stockInformation">
+                  <div class="name">Motorolla</div>
+                  <div class="price">899 р.</div>
+                  <div class="timer7"></div>
+                </div>
+              </div>
+              <div class="item">
+              <div class="stockImg" style="background-image: url('./images/catalogImages/motorolla.jpg');"></div>
+              <div class="stockInformation">
+                <div class="name">Motorolla</div>
+                <div class="price">899 р.</div>
+                <div class="timer8"></div>
+              </div>
+              </div>
+            </div>
+            
+            <div class="itemStock">
+              <div class="item">
+                  <div class="stockImg" style="background-image: url('./images/catalogImages/motorolla.jpg');"></div>
+                  <div class="stockInformation">
+                    <div class="name">Motorolla</div>
+                    <div class="price">899 р.</div>
+                    <div class="timer9"></div>
+                  </div>
+              </div>
+              <div class="item">
+                <div class="stockImg" style="background-image: url('./images/catalogImages/motorolla.jpg');"></div>
+                <div class="stockInformation">
+                  <div class="name">Motorolla</div>
+                  <div class="price">899 р.</div>
+                  <div class="timer10"></div>
+                </div>
+              </div>
+              <div class="item">
+              <div class="stockImg" style="background-image: url('./images/catalogImages/motorolla.jpg');"></div>
+              <div class="stockInformation">
+                <div class="name">Motorolla</div>
+                <div class="price">899 р.</div>
+                <div class="timer11"></div>
+              </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="elementStock">
+            <div class="itemStock">
+              <div class="item">
+                  <div class="stockImg" style="background-image: url('./images/catalogImages/Siemens.jpg');"></div>
+                  <div class="stockInformation">
+                    <div class="name">Siemens</div>
+                    <div class="price">199 р.</div>
+                    <div class="timer12"></div>
+                  </div>
+              </div>
+              <div class="item">
+                <div class="stockImg" style="background-image: url('./images/catalogImages/Siemens.jpg');"></div>
+                <div class="stockInformation">
+                  <div class="name">Siemens</div>
+                  <div class="price">199 р.</div>
+                  <div class="timer13"></div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="stockImg" style="background-image: url('./images/catalogImages/Siemens.jpg');"></div>
+                <div class="stockInformation">
+                  <div class="name">Siemens</div>
+                  <div class="price">199 р.</div>
+                  <div class="timer14"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="itemStock">
+              <div class="item">
+                  <div class="stockImg" style="background-image: url('./images/catalogImages/Siemens.jpg');"></div>
+                  <div class="stockInformation">
+                    <div class="name">Siemens</div>
+                    <div class="price">199 р.</div>
+                    <div class="timer15"></div>
+                  </div>
+              </div>
+              <div class="item">
+                <div class="stockImg" style="background-image: url('./images/catalogImages/Siemens.jpg');"></div>
+                <div class="stockInformation">
+                  <div class="name">Siemens</div>
+                  <div class="price">199 р.</div>
+                  <div class="timer16"></div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="stockImg" style="background-image: url('./images/catalogImages/Siemens.jpg');"></div>
+                <div class="stockInformation">
+                  <div class="name">Siemens</div>
+                  <div class="price">199 р.</div>
+                  <div class="timer17"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="arrowStock prevStock bg-light"><i class="fas fa-chevron-left"></i></button>
+      <button class="arrowStock nextStock bg-light"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
+
+  <div class="someInfo container-fluid">
+    <div class="someInfoBlock row justify-content-around">
+      <div class="someInfoElement col-lg-2">Примеров цинизма множество, но на самом деле прелестным, с моей точки зрения, образчиком цинизма служит выражение… Был такой Виктор Мориц Гольдшмидт, замечательный ученый. Когда он оказался в концлагере, у него, естественно, были какие-то еврейские крови, а там много было таких людей науки, он с гордостью показал остальным профессорам ампулу с каким-то очень быстро работающим цианидом, все, конечно, раззавидовались и стали говорить, что они тоже хотят. На что Гольдшмидт сказал: «Это для профессоров химии, а вот профессорам механики достаточно веревки».</div>
+      <div class="someInfoElement col-lg-2">Примеров цинизма множество, но на самом деле прелестным, с моей точки зрения, образчиком цинизма служит выражение… Был такой Виктор Мориц Гольдшмидт, замечательный ученый. Когда он оказался в концлагере, у него, естественно, были какие-то еврейские крови, а там много было таких людей науки, он с гордостью показал остальным профессорам ампулу с каким-то очень быстро работающим цианидом, все, конечно, раззавидовались и стали говорить, что они тоже хотят. На что Гольдшмидт сказал: «Это для профессоров химии, а вот профессорам механики достаточно веревки».</div>      
+      <div class="someInfoElement col-lg-2">Примеров цинизма множество, но на самом деле прелестным, с моей точки зрения, образчиком цинизма служит выражение… Был такой Виктор Мориц Гольдшмидт, замечательный ученый. Когда он оказался в концлагере, у него, естественно, были какие-то еврейские крови, а там много было таких людей науки, он с гордостью показал остальным профессорам ампулу с каким-то очень быстро работающим цианидом, все, конечно, раззавидовались и стали говорить, что они тоже хотят. На что Гольдшмидт сказал: «Это для профессоров химии, а вот профессорам механики достаточно веревки».</div>
+      <div class="someInfoElement col-lg-2">Примеров цинизма множество, но на самом деле прелестным, с моей точки зрения, образчиком цинизма служит выражение… Был такой Виктор Мориц Гольдшмидт, замечательный ученый. Когда он оказался в концлагере, у него, естественно, были какие-то еврейские крови, а там много было таких людей науки, он с гордостью показал остальным профессорам ампулу с каким-то очень быстро работающим цианидом, все, конечно, раззавидовались и стали говорить, что они тоже хотят. На что Гольдшмидт сказал: «Это для профессоров химии, а вот профессорам механики достаточно веревки».</div>    
+  </div>
+
+  <div class="importantInfo container-fluid bg-light">
+    <div class="importantInfoBlock row justify-content-around">
+      <div class="importantInfoElement col-lg-3">
+        <div class="importantInfoImg"><i class="far fa-hourglass" style="font-size: 60px;"></i></div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero saepe porro dolorum. Modi sit saepe doloremque quidem nulla, et libero voluptatibus. Impedit est reprehenderit iusto, fuga id accusamus aperiam voluptatem.
+      </div>
+      <div class="importantInfoElement col-lg-3">
+        <div class="importantInfoImg"><i class="fas fa-snowman" style="font-size: 60px;"></i></div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero saepe porro dolorum. Modi sit saepe doloremque quidem nulla, et libero voluptatibus. Impedit est reprehenderit iusto, fuga id accusamus aperiam voluptatem.
+      </div>
+      <div class="importantInfoElement col-lg-3">
+        <div class="importantInfoImg"><i class="fas fa-industry" style="font-size: 60px;"></i></div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero saepe porro dolorum. Modi sit saepe doloremque quidem nulla, et libero voluptatibus. Impedit est reprehenderit iusto, fuga id accusamus aperiam voluptatem.
+      </div>
+    </div>
+    <div class="importantInfoBlock row justify-content-around">
+      <div class="importantInfoElement col-lg-3">
+        <div class="importantInfoImg"><i class="fas fa-tv" style="font-size: 60px;"></i></div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero saepe porro dolorum. Modi sit saepe doloremque quidem nulla, et libero voluptatibus. Impedit est reprehenderit iusto, fuga id accusamus aperiam voluptatem.
+      </div>
+      <div class="importantInfoElement col-lg-3">
+        <div class="importantInfoImg"><i class="fas fa-shipping-fast" style="font-size: 60px;"></i></div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero saepe porro dolorum. Modi sit saepe doloremque quidem nulla, et libero voluptatibus. Impedit est reprehenderit iusto, fuga id accusamus aperiam voluptatem.
+      </div>
+      <div class="importantInfoElement col-lg-3">
+        <div class="importantInfoImg"><i class="fas fa-robot" style="font-size: 60px;"></i></div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero saepe porro dolorum. Modi sit saepe doloremque quidem nulla, et libero voluptatibus. Impedit est reprehenderit iusto, fuga id accusamus aperiam voluptatem.
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footerDiv">Anton Kazlou</div>
+  </footer>
+
+  <script src="src/all.js"></script>
+  <script src="src/stockTimer.js"></script>
+  <script src="src/carouselMain.js"></script>
+  <script src="src/carouselStock.js"></script>
+  <script src="src/database.js"></script>
+  <script src="src/storage.js"></script>
+  <script src="src/catalog.js"></script>
+  <script src="src/startReg.js"></script>
+  <script src="src/setRegistration.js"></script>
+</body>
+</html>
+
